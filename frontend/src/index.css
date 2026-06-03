@@ -1,0 +1,33 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  background: #f5f7fa;
+  color: #2c3e50;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+button:hover { opacity: 0.85; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+input, textarea {
+  font-family: inherit;
+  font-size: 14px;
+  border: 1px solid #dde1e7;
+  border-radius: 6px;
+  padding: 8px 12px;
+  outline: none;
+  width: 100%;
+}
+input:focus { border-color: #3498db; }

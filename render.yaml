@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: egogram-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+    disk:
+      name: egogram-data
+      mountPath: /data
+      sizeGB: 1
