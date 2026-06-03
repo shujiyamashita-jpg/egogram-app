@@ -1,12 +1,19 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const path = require('path');
 
-const dbPath = process.env.NODE_ENV === 'production'
-  ? '/data/db.json'
-  : path.join(__dirname, 'db.json');
+function resolveDbPath() {
+  const persistentDir = '/data';
+  if (process.env.NODE_ENV === 'production' && fs.existsSync(persistentDir)) {
+    return path.join(persistentDir, 'db.json');
+  }
+  return path.join(__dirname, 'db.json');
+}
+
+const dbPath = resolveDbPath();
 const adapter = new FileSync(dbPath);
 const db = low(adapter);
 
